@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20141027215030) do
 
   create_table "badges", force: true do |t|
     t.string   "title"
+    t.integer  "points"
     t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -33,7 +34,7 @@ ActiveRecord::Schema.define(version: 20141027215030) do
 
   create_table "games", force: true do |t|
     t.string   "title"
-    t.string   "type"
+    t.string   "game_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
