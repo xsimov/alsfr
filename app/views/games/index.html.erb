@@ -1,0 +1,18 @@
+<h1>Marcador</h1>
+
+<table class="table table-responsive table-striped table-hover">
+  <tr>
+    <th>T&iacute;tol</th>
+    <th>N&uacute;mero de Badges</th>
+    <th>N&uacute;mero de partides jugades</th>
+  </tr>
+  <tbody class="">
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= game.name %></td>
+        <td><%= game.badges.count %></td>
+        <td><%= game.total_points %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
