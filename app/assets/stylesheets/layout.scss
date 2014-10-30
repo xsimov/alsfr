@@ -3,12 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 article.main {
-  width: 80%;
-  margin: auto!important;
+  width: 85%;
+  margin-left: 10%;
   padding-top: 3rem;
   h1 {
     margin-top: 0;
   }
+  text-align: center;
 }
 
 .nav {
