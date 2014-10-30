@@ -11,6 +11,7 @@ class PlayersController < ApplicationController
   end
 
   def index
-    @players = Player.all
+    unsorted_players = Player.all
+    @players = unsorted_players.sort_by { |player| player.total_points }.reverse
   end
 end

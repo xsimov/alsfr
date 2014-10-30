@@ -5,6 +5,10 @@ class Player < ActiveRecord::Base
   has_and_belongs_to_many :badges
 
   def total_points
-    23
+    total = 0
+    self.scores.each do |score|
+      total += score.points
+    end
+    total
   end
 end
