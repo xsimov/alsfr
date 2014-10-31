@@ -1,9 +1,11 @@
 class PlayersController < ApplicationController
   def new
+    @player = Player.new
   end
 
   def create
-    Player.save name: params[:name]
+    Player.create player_params
+    redirect_to root_path
   end
 
   def show
@@ -13,5 +15,8 @@ class PlayersController < ApplicationController
   def index
     unsorted_players = Player.all
     @players = unsorted_players.sort_by { |player| player.total_points }.reverse
+  end
+  def player_params
+    params.require(:player).permit(:name)
   end
 end

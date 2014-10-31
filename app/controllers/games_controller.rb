@@ -14,4 +14,8 @@ class GamesController < ApplicationController
   rescue
     render :new
   end
+
+  def game_params
+    params.require(:game).permit(:title, :game_type)
+  end
 end

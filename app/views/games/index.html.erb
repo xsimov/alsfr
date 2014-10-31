@@ -6,13 +6,15 @@
     <th>N&uacute;mero de Badges</th>
     <th>N&uacute;mero de partides jugades</th>
     <th>Mitjana de temps per partida</th>
+    <th></th>
   </tr>
     <% @games.each do |game| %>
     <tr>
-      <td><%= game.title %> <%= hidden_field_tag :game_id, game.id %></td>
+      <td><%= link_to game.title, game_path(game) %> <%= hidden_field_tag :game_id, game.id %></td>
       <td><%= game.badges.count %></td>
       <td><%= game.matches.count %></td>
       <td><%= game.average_duration %></td>
+      <td><%= link_to "Editar", edit_game_path(game) %> | <%= link_to "Crear nova partida", new_game_match_path(game) %></td>
     </tr>
     <% end %>
 </table>

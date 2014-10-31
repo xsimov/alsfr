@@ -1,0 +1,22 @@
+#from, #to {
+  float: left;
+  display: inline-block;
+  background: #d3e1ef;
+  border-radius: 5px;
+  width: 25rem;
+  height: 20rem;
+  margin: 1rem;
+}
+
+#to {
+  float: right;
+}
+
+.player {
+  display: inline-block;
+  background: #829adf;
+  margin: 0.5rem;
+  border-radius: 5px;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+}

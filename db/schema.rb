@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20141029120536) do
   add_index "games_tags", ["tag_id"], name: "index_games_tags_on_tag_id", using: :btree
 
   create_table "matches", force: true do |t|
-    t.integer  "duration"
+    t.integer  "duration",   default: 0
     t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
