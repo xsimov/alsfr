@@ -7,8 +7,8 @@ class MatchesController < ApplicationController
 
   def create
     match = Match.new game_id: params[:game_id]
-    params[:match][:players].each do |player_record|
-      match.players << Player.find(player_record.last["player_id"])
+    params[:match][:players].each do |player_id|
+      match.players << Player.find(player_id)
     end
     match.save
     redirect_to games_path

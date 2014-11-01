@@ -13,7 +13,10 @@ function dropIt(event) {
   event.preventDefault();
   if (event.target.id === "to") {
     setPlayerIdHiddenField(theDraggedElement.id);
-  }
+  } else if (event.target.id === "from") {
+    destroyPlayerIdHiddenField(theDraggedElement.id)
+  };
+
 }
 
 function setPlayerIdHiddenField(playerId) {
@@ -23,5 +26,25 @@ function setPlayerIdHiddenField(playerId) {
   newField.name = "match[players][" + position + "][player_id]";
   position++;
   newField.value = playerId;
-  form.appendChild(newField);
+  newField.className = 'hid' + playerId;
+  if (!checkIfItIsAlreadyThere(newField, form)) {
+    form.appendChild(newField);
+  }
+}
+
+function destroyPlayerIdHiddenField(playerId) {
+  var form = document.getElementById('new_match');
+  var doomedElement = document.getElementsByClassName('hid' + playerId)[0];
+  form.removeChild(doomedElement);
+}
+
+function checkIfItIsAlreadyThere(element, parentOfElement) {
+  var possibleCopies = document.getElementsByClassName(element.className);
+  var finalDecision = false;
+  for (var i in possibleCopies) {
+    if (possibleCopies[i].parentNode === parentOfElement) {
+      finalDecision = true;
+    }
+  }
+  return finalDecision;
 }
