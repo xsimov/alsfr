@@ -5,6 +5,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find params[:id]
+    @players = @game.players.sort_by { |player| player.total_score_for @game }.uniq.reverse
   end
 
   def new
