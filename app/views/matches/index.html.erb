@@ -1,11 +1,13 @@
 <h1>Partides del <%= @game.title %></h1>
 <table class="table table-responsive table-striped table-hover">
-  <tr>
-    <th>Data</th>
-    <th>Durada</th>
-    <th>Jugadors</th>
-    <th>Accions</th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Durada</th>
+      <th>Jugadors</th>
+      <th>Accions</th>
+    </tr>
+  </thead>
   <tbody>
     <% @game.matches.order(:created_at).each do |match| %>
       <tr>

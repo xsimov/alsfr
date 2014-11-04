@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import url(http://fonts.googleapis.com/css?family=Lato:300|Amatic+SC:400);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,700|Amatic+SC:400);
 
 * {
   font-family: "Lato", sans-serif;
@@ -22,6 +22,7 @@ article.main {
 
 table th {
   text-align: center;
+  font-family: "Lato", bold;
 }
 .nav {
   padding-top: 2rem;

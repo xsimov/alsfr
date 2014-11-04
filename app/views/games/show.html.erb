@@ -2,9 +2,11 @@
 
 <section id="ranking">
   <table class="table table-responsive table-striped table-hover">
-    <th>#</th>
-    <th>Jugador</th>
-    <th>Punts</th>
+    <thead>
+      <th>#</th>
+      <th>Jugador</th>
+      <th>Punts</th>
+    </thead>
     <% @players.each.with_index do |player, index| %>
       <tr>
         <td><%= index + 1 %></td>
