@@ -6,6 +6,7 @@
     <th>Nom</th>
     <th>N&uacute;mero de Badges</th>
     <th>Punts totals</th>
+    <th>Accions</th>
   </tr>
   <tbody class="">
     <% @players.each.with_index do |player, index| %>
@@ -14,6 +15,7 @@
         <td><%= player.name %></td>
         <td><%= player.badges.count %></td>
         <td><%= player.total_points %></td>
+        <td><%= link_to "Editar", edit_player_path(player) %> | <%= link_to "Eliminar", player_path(player), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>

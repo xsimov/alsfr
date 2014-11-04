@@ -1,0 +1,13 @@
+<h1>Tanca la partida de <%= @match.game.title %> del <%= @match.beautified_created_at %></h1>
+<h3>Punts</h3>
+<section class="lil-form-container smallest">
+  <%= form_for [@match] do |f| %>
+    <% @match.scores.each do |this_score| %>
+      <%= f.fields_for :scores, this_score do |sf| %>
+        <%= sf.label this_score.player.name %>
+        <%= sf.text_field :points, class: "form-control" %>
+      <% end %>
+    <% end %>
+    <%= f.submit "Enviar puntuació", :disable_with => 'Enviant...', class: "btn btn-primary" %>
+  <% end %>
+</section>

@@ -5,11 +5,10 @@ class Game < ActiveRecord::Base
   has_many :players, through: :scores
 
   def average_duration
+    return 0 if self.matches.count == 0
     total_duration = 0
-    self.matches.each do |match|
-      total_duration += match.duration      
-    end
-    beautify_time(total_duration / self.matches.count)
+    self.matches.each { |match| total_duration += match.duration }
+    beautify_time(total_duration / (self.matches.count))
   end
 
   def beautify_time total_minutes
