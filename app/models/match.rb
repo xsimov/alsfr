@@ -1,6 +1,6 @@
 class Match < ActiveRecord::Base
   belongs_to :game
-  has_many :scores, dependant: :destroy
+  has_many :scores, dependent: :destroy
   has_many :players, through: :scores
   scope :opened, -> { where(open_status: true) }
   scope :closed, -> { where(open_status: false) }

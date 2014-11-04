@@ -1,0 +1,17 @@
+<h1><%= @game.title %></h1>
+
+<section id="ranking">
+  <table class="table table-responsive table-striped table-hover">
+    <th>#</th>
+    <th>Jugador</th>
+    <th>Punts</th>
+    <% @game.players.each.with_index do |player, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= player.name %></td>
+        <td><%= player.total_score_for @game %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>
+<%= render "matches" %>

@@ -3,6 +3,10 @@ class GamesController < ApplicationController
     @games = Game.order(:id)
   end
 
+  def show
+    @game = Game.find params[:id]
+  end
+
   def new
     @game = Game.new
   end

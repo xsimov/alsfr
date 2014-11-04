@@ -1,4 +1,3 @@
-<h1>Partides de <%= @game.title %></h1>
 <table class="table table-responsive table-striped table-hover">
   <tr>
     <th>Data</th>
@@ -7,7 +6,7 @@
     <th>Accions</th>
   </tr>
   <tbody>
-    <% @matches.each do |match| %>
+    <% @game.matches.order(:created_at).each do |match| %>
       <tr>
         <td><%= match.beautified_created_at %></td>
         <td><%= display_duration_or_opened match %></td>
