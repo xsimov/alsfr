@@ -3,16 +3,18 @@
 <table class="table table-responsive table-striped table-hover">
   <tr>
     <th>T&iacute;tol</th>
+    <th>Tipus</th>
     <th>N&uacute;mero de Badges</th>
     <th>N&uacute;mero de partides jugades</th>
     <th>Mitjana de temps per partida</th>
-    <th></th>
+    <th>Accions</th>
   </tr>
     <% @games.each do |game| %>
     <tr>
       <td><%= link_to game.title, game_path(game) %> <%= hidden_field_tag :game_id, game.id %></td>
+      <td><%= game.game_type %></td>
       <td><%= game.badges.count %></td>
-      <td><%= game.matches.count %></td>
+      <td><%= link_to game.matches.count, game_matches_path(game) %></td>
       <td><%= game.average_duration %></td>
       <td><%= link_to "Editar", edit_game_path(game) %> | <%= link_to "Crear nova partida", new_game_match_path(game) %></td>
     </tr>

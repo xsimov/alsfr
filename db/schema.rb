@@ -48,8 +48,9 @@ ActiveRecord::Schema.define(version: 20141029120536) do
   add_index "games_tags", ["tag_id"], name: "index_games_tags_on_tag_id", using: :btree
 
   create_table "matches", force: true do |t|
-    t.integer  "duration",   default: 0
+    t.integer  "duration",    default: 0
     t.integer  "game_id"
+    t.boolean  "open_status", default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(version: 20141029120536) do
   create_table "scores", force: true do |t|
     t.integer  "match_id"
     t.integer  "player_id"
-    t.integer  "points"
+    t.integer  "points",     default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

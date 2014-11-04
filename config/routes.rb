@@ -4,9 +4,16 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'players#index'
+
+  get '/all_matches' => 'matches#all_matches'
+  get '/match/:id/close' => 'matches#close'
+  get '/match/:id/reopen' => 'matches#reopen'
+  patch '/match/:id/setscores' => 'matches#set_scores', as: :match
+
   resources :players, except: [:index]
   resources :games do
     resources :badges
     resources :matches
   end
+  resources :tags, only: [:index]
 end

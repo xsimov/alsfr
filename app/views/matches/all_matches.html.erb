@@ -1,0 +1,23 @@
+<h1>Partides <%= display_opened_or_closed %></h1>
+<a href="/all_matches"><button class="btn btn-primary">En disputa</button></a> | <a href="/all_matches?tab=closed"><button class="btn btn-primary">Tancades</button></a> <br/>
+<table class="table table-responsive table-striped table-hover">
+  <tr>
+    <th>Joc</th>
+    <th>Data</th>
+    <th>Durada</th>
+    <th>Jugadors</th>
+    <th>Accions</th>
+  </tr>
+  <tbody class="">
+    <% @matches.each do |match| %>
+      <tr>
+        <td><%= link_to match.game.title, game_path(match.game) %></td>
+        <td><%= match.beautified_created_at %></td>
+        <td><%= display_duration_or_opened match %></td>
+        <td><%= display_players_for match %></td>
+        <td><%= link_to_reopen_or_close match %> | 
+        <%= link_to "Elimina-la", game_match_path(match.game_id, match.id), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

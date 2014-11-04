@@ -1,5 +1,6 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+
 var position = 0;
 
 function dragIt(event) {
@@ -9,14 +10,17 @@ function dragIt(event) {
 function dropIt(event) {
   var theData = event.dataTransfer.getData("Text");
   var theDraggedElement = document.getElementById(theData);
-  event.target.appendChild(theDraggedElement);
+  if (event.target.nodeName === "DIV") {
+    event.target.appendChild(theDraggedElement);
+  } else {
+    event.target.parentNode.appendChild(theDraggedElement);
+  }
   event.preventDefault();
   if (event.target.id === "to") {
     setPlayerIdHiddenField(theDraggedElement.id);
   } else if (event.target.id === "from") {
     destroyPlayerIdHiddenField(theDraggedElement.id)
   };
-
 }
 
 function setPlayerIdHiddenField(playerId) {

@@ -4,12 +4,20 @@
   background: #d3e1ef;
   border-radius: 5px;
   width: 25rem;
-  height: 20rem;
+  min-height: 20rem;
   margin: 1rem;
+  padding:1rem;
 }
 
 #to {
   float: right;
+}
+
+#newMatchSubmit {
+  bottom: -4rem;
+  right: 37%;
+  margin: auto;
+  position: absolute;
 }
 
 .player {
@@ -19,4 +27,9 @@
   border-radius: 5px;
   height: 3rem;
   padding: 0.5rem 1rem;
+}
+
+// named by Rails
+#new_match {
+  position: relative;
 }

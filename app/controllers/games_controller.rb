@@ -1,10 +1,22 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    @games = Game.order(:id)
   end
 
   def new
     @game = Game.new
+  end
+
+  def edit
+    @game = Game.find params[:id]
+  end
+
+  def update
+    @game = Game.find params[:id]
+    @game.update game_params
+    redirect_to games_path
+  rescue
+    render :edit
   end
 
   def create

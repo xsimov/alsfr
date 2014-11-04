@@ -1,6 +1,6 @@
-<h1>Crea una nova partida</h1>
+<h1>Crea una nova partida de <%= @game.title %></h1>
 <section class="lil-form-container">
-  <%= form_for [@game, @match] do |f| %>
+  <%= form_for [@game, @match], html: { class: "clearfix" } do |f| %>
     <%= f.label :players, "Jugadors" %> 
     <br />
     <div id="from" ondrop="dropIt(event);" ondragover="event.preventDefault();">
@@ -10,6 +10,6 @@
     </div>
     <div id="to" ondrop="dropIt(event);" ondragover="event.preventDefault();">
     </div>
-    <%= f.submit "Començar la partida", :disable_with => 'Afegint jugadors...', class: "btn btn-primary" %>
+    <%= f.submit "Començar la partida", id: "newMatchSubmit", :disable_with => 'Afegint jugadors...', class: "btn btn-primary" %>
   <% end %>
 </section>
