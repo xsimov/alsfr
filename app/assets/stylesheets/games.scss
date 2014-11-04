@@ -1,0 +1,57 @@
+// ranking section
+#ranking {
+  width: 25rem;
+  display: inline-block;
+  margin: 2rem;
+}
+
+// info section
+#info {
+  padding: 1rem;
+  text-align: left;
+  width: 30rem;
+  display: inline-block;
+  margin: 2rem;
+}
+// badges section
+#badges {
+  width: 90%;
+  height: 15rem;
+  margin: auto;
+  position: relative;
+
+  .arrow {
+    position: absolute;
+    width: 2rem;
+    height: 14.75rem;
+    background: #f0f8ff;
+  }
+
+  .arrow:hover {
+    background: #dfe7ff;
+  }
+
+  #left-arrow {
+    left: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  #right-arrow {
+    right: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  #badge-list {
+
+    li {
+      display: inline-block;
+    }
+
+    img {
+      height: 13rem;
+      margin: 1rem 1rem;
+    }
+  }
+}

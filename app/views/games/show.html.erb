@@ -1,0 +1,46 @@
+<h1><%= @game.title %></h1>
+<section id="ranking">
+  <table class="table table-responsive table-striped table-hover">
+    <thead>
+      <th>#</th>
+      <th>Jugador</th>
+      <th>Punts</th>
+    </thead>
+    <% @players.each.with_index do |player, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= player.name %></td>
+        <td><%= player.total_score_for @game %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>
+<section id="info" class="panel panel-primary">
+  <ul>
+    <li>Propietari: <%= @game.owner %></li>
+    <li>Localització: <%= @game.location %></li>
+    <li>Número de badges: <%= @game.badges.count %></li>
+    <li>Número de partides jugades: <%= @game.matches.count %></li>
+    <li>Mitjana de jugadors per partida: <%= @game.average_number_of_players %></li>
+    <li>Durada mitjana: <%= @game.average_duration %></li>
+    <li>Jugadors que més hi han jugat:
+      <ul>
+        <% @game.most_played_by.each do |player| %>
+          <li><%= player.name %></li>
+        <% end %>
+      </ul>
+    </li>
+    <li>Expansions:</li>
+  </ul>
+</section>
+<section id="badges" class="panel panel-primary">
+  <div id="left-arrow" class="panel arrow"></div>
+  <div id="right-arrow" class="panel arrow"></div>
+    <ul id="badge-list">
+      <li class="<%=  %>"><img src="https://trello-attachments.s3.amazonaws.com/5452be48608d7c7697fd8637/200x200/104e1591f653987d16789df95862738f/Sex_change.png"></li>
+      <li class="<%=  %>"><img src="https://trello-attachments.s3.amazonaws.com/5452be48608d7c7697fd8637/200x200/104e1591f653987d16789df95862738f/Sex_change.png"></li>
+      <li class="<%=  %>"><img src="https://trello-attachments.s3.amazonaws.com/5452be48608d7c7697fd8637/200x200/104e1591f653987d16789df95862738f/Sex_change.png"></li>
+      <li class="<%=  %>"><img src="https://trello-attachments.s3.amazonaws.com/5452be48608d7c7697fd8637/200x200/104e1591f653987d16789df95862738f/Sex_change.png"></li>
+      <li class="<%=  %>"><img src="https://trello-attachments.s3.amazonaws.com/5452be48608d7c7697fd8637/200x200/104e1591f653987d16789df95862738f/Sex_change.png"></li>
+    </ul>
+</section>

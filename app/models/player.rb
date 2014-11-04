@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-  has_many :scores
+  has_many :scores, dependent: :destroy
   has_many :matches, through: :scores
   has_many :games, through: :matches
   has_and_belongs_to_many :badges
@@ -10,5 +10,12 @@ class Player < ActiveRecord::Base
       total += score.points
     end
     total
+  end
+
+  def total_score_for game
+    total_score = 0
+    all_scores = Score.where(player_id: self.id).select {|score| score.game.id == game.id}
+    all_scores.each { |score| total_score += score.points}
+    total_score
   end
 end

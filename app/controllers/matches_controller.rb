@@ -5,8 +5,8 @@ class MatchesController < ApplicationController
   end
 
   def index
-    @matches = Match.where(game_id: params[:game_id])
-    @game = Game.find params[:game_id]
+    @game = Game.find(params[:game_id])
+    @matches = Match.where(game_id: @game.id).ordered
   end
 
   def new

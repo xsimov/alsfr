@@ -18,4 +18,12 @@ class Game < ActiveRecord::Base
     beautified_string += "i #{minutes} minuts" unless minutes == 0
     beautified_string
   end
+
+  def most_played_by
+    [Player.first]
+  end
+
+  def average_number_of_players
+    (self.matches.reduce(0) { |all_players, match| all_players + match.players.count }) / self.matches.count.to_f
+  end
 end
