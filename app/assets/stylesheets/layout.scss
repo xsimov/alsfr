@@ -18,6 +18,15 @@ article.main {
     font-size: 6rem;
   }
   text-align: center;
+  ul {
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    ul {
+      padding-left: 1rem;
+    }
+  }
 }
 
 table th {
