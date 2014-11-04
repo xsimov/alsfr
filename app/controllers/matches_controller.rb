@@ -6,7 +6,7 @@ class MatchesController < ApplicationController
 
   def index
     @game = Game.find(params[:game_id])
-    @matches = Match.where(game_id: @game.id)
+    @matches = Match.where(game_id: @game.id).ordered
   end
 
   def new
