@@ -4,6 +4,11 @@ class MatchesController < ApplicationController
     @matches = (params[:tab] == "closed") ? Match.closed : Match.opened
   end
 
+  def index
+    @game = Game.find(params[:game_id])
+    @matches = Match.where(game_id: @game.id)
+  end
+
   def new
     @match = Match.new
     @game = Game.find params[:game_id]

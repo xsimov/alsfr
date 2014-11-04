@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :players, except: [:index]
   resources :games do
     resources :badges
-    resources :matches, except: [:index]
+    resources :matches
   end
   resources :tags, only: [:index]
 end
