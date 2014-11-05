@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @game.matches.order(:created_at).each do |match| %>
+    <% @matches.each do |match| %>
       <tr>
         <td><%= match.beautified_created_at %></td>
         <td><%= display_duration_or_opened match %></td>

@@ -36,6 +36,7 @@ class MatchesController < ApplicationController
 
   def set_scores
     match = Match.find params[:id]
+    binding.pry
     match.update match_params.merge(open_status: false)
     redirect_to root_path
   end
