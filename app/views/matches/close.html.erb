@@ -8,6 +8,8 @@
         <%= sf.text_field :points, class: "form-control" %>
       <% end %>
     <% end %>
+    <%= f.label :duration, "Durada (en minuts)" %> <br />
+    <%= f.text_field :duration, class: "form-control" %>
     <%= f.submit "Enviar puntuació", :disable_with => 'Enviant...', class: "btn btn-primary" %>
   <% end %>
 </section>

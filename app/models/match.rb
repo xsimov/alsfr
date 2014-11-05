@@ -10,4 +10,9 @@ class Match < ActiveRecord::Base
   def beautified_created_at
     self.created_at.strftime("%-d.%-m.%Y a les %l:%Mh %P")
   end
+
+  def reset_scores_and_duration
+    self.duration = 0
+    self.scores.map { |score| score.points = 0;score.save }
+  end
 end
