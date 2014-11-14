@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20141104134659) do
     t.datetime "updated_at"
     t.string   "location"
     t.string   "owner"
-    t.string   "expansions", default: "--- []\n"
+    t.string   "expansions", default: [], array: true
   end
 
   create_table "games_tags", id: false, force: true do |t|
