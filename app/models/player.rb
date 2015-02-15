@@ -14,8 +14,7 @@ class Player < ActiveRecord::Base
 
   def total_score_for game
     total_score = 0
-    all_scores = Score.where(player_id: self.id).select {|score| score.game.id == game.id}
-    all_scores.each { |score| total_score += score.points}
+    scores.select {|score| score.game.id == game.id }.each { |score| total_score += score.points}
     total_score
   end
 end
